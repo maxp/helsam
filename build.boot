@@ -125,7 +125,7 @@
 ;
 
 (deftask dev []
-  (set-env! :source-paths #(conj % "dev" "test"))
+  ; (set-env! :source-paths #(conj % "test"))
   (apply set-refresh-dirs (get-env :source-paths))
   ;;
   (create-ns 'user)
