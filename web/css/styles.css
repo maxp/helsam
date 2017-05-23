@@ -1,0 +1,44 @@
+
+html, body {
+  margin: 0; padding: 0;
+  width: 100vw; height: 100vh;
+}
+
+.wh100 { width: 100vw; height: 100vh; }
+
+.b-page {
+  width: 100vw; height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.b-top {
+  padding: 2px;
+  flex: 0 0 auto;
+  background-color: #ddf;
+}
+
+.b-bottom {
+  padding: 4px;
+  flex: 0 0 auto;
+  background-color: #ddd;
+}
+
+.b-side-pane {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.b-side {
+  flex: 0 0;
+  background-color: #6f6;
+  /*width: 200px; */
+}
+
+.b-bar { width: 200px; }
+
+.b-pane {
+  flex: 1 0;
+  padding: 10px;
+}

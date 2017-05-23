@@ -1,0 +1,11 @@
+#!/bin/bash
+
+JAR="helsam.jar"
+
+java -jar $JAR var/prod.edn >>/var/log/www/helsam-out.log 2>&1 &
+
+PID=$!
+echo $PID > .pid
+wait $PID
+
+#.
