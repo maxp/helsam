@@ -155,7 +155,7 @@
   (comp
     (serve :dir "tmp/root")
     (watch)
-    (reload :on-jsload 'fv.core/run)
+    (reload :on-jsload 'helsam.page/run)
     ; (cljs-repl)
     (cljs :source-map true
           :optimizations :none)
@@ -202,7 +202,7 @@
     (cljs :source-map false
           :optimizations :advanced)
     (sift :invert true
-          :include #{#"logback.xml"})
+          :include #{#"logback.xml" #"main\.out/"})
     (target
           :dir #{"tmp/target"})))
 ;

@@ -1,2 +1,2 @@
-{:require [fv.core]
+{:require [helsam.page]
  :compiler-options {:asset-path "js/main.out"}}

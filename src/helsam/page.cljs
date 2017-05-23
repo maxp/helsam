@@ -1,13 +1,12 @@
-; (ns fv.core
-;   (:require
-;     [reagent.core :as reagent]
-;     [re-frame.core :as rf]
-;     ;
-;     [fv.layout :as layout]))
-; ;
+(ns helsam.page
+  (:require
+    [reagent.core :as reagent]
+    ;
+    [helsam.layout :as layout]))
 ;
-; (enable-console-print!)
-;
+
+(enable-console-print!)
+
 ; (defn dispatch-timer-event
 ;   []
 ;   (let [now (js/Date.)]
@@ -73,24 +72,23 @@
 ;             :on-change #(rf/dispatch [:time-color-change (-> % .-target .-value)])}]])  ;; <---
 ; ;
 ;
-; (defn ui
-;   []
-;   [:div
-;    [:h1 "Hello world, it is now"]
-;    [clock]
-;    [color-input]])
-; ;
+(defn ui []
+  [:div
+    [:h1 "Hello world, it is now"]])
+    ; [clock]
+    ; [color-input]])
 ;
+
+
+(.log js/console "start")
+
+
+(defn ^:export run []
+  (.log js/console "run.")
+;  (rf/dispatch-sync [:initialize])
+  (reagent/render
+    [layout/frame [ui]]
+    (js/document.getElementById "app")))
 ;
-; (.log js/console "start")
-;
-;
-; (defn ^:export run []
-;   (.log js/console "run.")
-;   (rf/dispatch-sync [:initialize])
-;   (reagent/render
-;     [layout/page [ui]]
-;     (js/document.getElementById "app")))
-; ;
-;
-; ;;.
+
+;;.

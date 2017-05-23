@@ -1,7 +1,7 @@
 
-(ns fv.layout)
+(ns helsam.layout)
 
-(defn page [pane]
+(defn frame [pane]
   [:div.b-page
     [:div.b-top "top" [:br] "top menu"]
     [:div.b-side-pane
@@ -11,3 +11,5 @@
       [:div.b-pane "pane" pane]]
     [:div.b-bottom "bottom"]])
 ;
+
+;.
