@@ -1,0 +1,135 @@
+
+{
+  "address": [
+    {
+      "use": "home",
+      "city": "Fresno",
+      "line": [
+        "P.O. Box 158, 9242 Nam Street",
+        "Building 149, flat 167"
+      ],
+      "state": "TN",
+      "district": "Forest County",
+      "postalCode": "18036"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "given": [
+        "Adam",
+        "Testpatient"
+      ],
+      "family": [
+        "Hanson"
+      ],
+      "suffix": [
+        "Sr"
+      ]
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Test Patient"
+      ]
+    }
+  ],
+  "birthDate": "1942-10-06",
+  "resourceType": "Patient",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/us-core-ethnicity",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "2135-2",
+            "system": "http://hl7.org/fhir/v3/Ethnicity"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/us-core-race",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "2108-9",
+            "system": "http://hl7.org/fhir/v3/Race"
+          }
+        ]
+      }
+    }
+  ],
+  "active": true,
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "code": "en",
+            "system": "urn:ietf:bcp:47"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ],
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "code": "SS",
+            "system": "http://hl7.org/fhir/v2/0203"
+          }
+        ]
+      },
+      "value": "000000233",
+      "system": "http://hl7.org/fhir/sid/us-ssn"
+    }
+  ],
+  "telecom": [
+    {
+      "use": "mobile",
+      "rank": 1,
+      "value": "122.108.2548",
+      "system": "phone"
+    },
+    {
+      "rank": 1,
+      "value": "mauris@molestiein.edu",
+      "system": "email"
+    }
+  ],
+  "gender": "male",
+  "maritalStatus": {
+    "text": "Married",
+    "coding": [
+      {
+        "code": "M",
+        "system": "http://hl7.org/fhir/v3/MaritalStatus",
+        "display":"Married"
+      }
+    ]
+  },
+  "contact": [
+    {
+      "organization": {
+        "display": "Lukoil Corp."
+      },
+      "relationship": [
+        {
+          "text": "Employer / School",
+          "coding": [
+            {
+              "code": "e",
+              "system": "http://hl7.org/fhir/v2/0131",
+              "display": "Employer"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -45,6 +45,10 @@
     [hikari-cp "1.7.5"]   ; https://github.com/tomekw/hikari-cp
     [honeysql "0.8.2"]    ; https://github.com/jkk/honeysql
 
+    ;; client part
+    [cljs-ajax "0.6.0"]
+    
+
     [reagent "0.6.2"]
     ; [reagent "0.6.0" :exclusions [cljsjs/react]]
     ; [cljsjs/react-with-addons "15.2.1-0"]
