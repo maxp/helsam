@@ -25,7 +25,7 @@
     [ch.qos.logback/logback-classic "1.2.3"]
 
     [clj-time "0.13.0"]
-    [clj-http "3.5.0"]
+    [clj-http "3.6.0"]
 
     [ring/ring-core "1.6.1"]
     [ring/ring-json "0.4.0"]
@@ -47,7 +47,7 @@
 
     ;; client part
     [cljs-ajax "0.6.0"]
-    
+
 
     [reagent "0.6.2"]
     ; [reagent "0.6.0" :exclusions [cljsjs/react]]

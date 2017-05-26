@@ -3,7 +3,9 @@
     [reagent.core :as reagent]
     ;
     [helsam.layout :as layout]
+    [helsam.auth0 :refer [auth-btn]]
     [helsam.patient :as patient]))
+
 ;
 
 (enable-console-print!)
@@ -12,6 +14,8 @@
   (.log js/console (str msg) (clj->js args)))
 ;
 
+;; window.location.hash
+;; http://localhost:3000/#access_token=mlMqeVX_kigOoKD9&expires_in=86400&id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL21heHAuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDU5MjZiZTJmZDk2NDNmMzIzNWY0ZDc3MCIsImF1ZCI6IjhPN0lwNmlVOTFEbmRXRmNKdlo5RkhQdzhjd3g1RlozIiwiZXhwIjoxNDk1ODMzOTAyLCJpYXQiOjE0OTU3OTc5MDJ9.cZ5LKpr5vX3UFUZsWu0B8L8Fg0S0sVBhLcN_aofVZ2o&token_type=Bearer
 
 ;; NOTE: double submit not checked
 
@@ -39,6 +43,8 @@
   [:div
     [:h2 "content pane"]
     [:div.col-sm-6
+      [auth-btn]
+      [:hr]
       [btn-list]
       " "
       [btn-create]]
