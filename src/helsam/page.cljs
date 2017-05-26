@@ -3,7 +3,7 @@
     [reagent.core :as reagent]
     ;
     [helsam.layout :as layout]
-    [helsam.auth0 :refer [auth-btn]]
+    [helsam.auth0 :refer [auth-btn token-pane]]
     [helsam.patient :as patient]))
 
 ;
@@ -44,6 +44,7 @@
     [:h2 "content pane"]
     [:div.col-sm-6
       [auth-btn]
+      [token-pane]
       [:hr]
       [btn-list]
       " "

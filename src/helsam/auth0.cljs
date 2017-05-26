@@ -28,8 +28,8 @@
 ; state=STATE&
 ; additional-parameter=ADDITIONAL_PARAMETERS)
 
-(defn query-params [h]
-  (->
+(defn query-params-map [h]
+  (->>
     (s/split (str h) #"&")
     (map #(s/split % #"="))
     (into {})
@@ -44,22 +44,17 @@
       (js->clj))))
 ;
 
-
-(defn get-id-token [h]
-  (prn "h:" h)
-  (when-let [idt (get (query-params h) "id_token")]
-    (prn "id_tok:" idt)
+(defn get-token-data [h]
+  (when-let [idt (get (query-params-map h) "id_token")]
     (let [[hdr data sign] (s/split idt #"\.")]
-      (prn "id_tok:" idt)
       (decode-b64 data))))
+      ;; NOTE: keywordize?
 ;
 
-(def id_token
-  (-> js/window .-location .-hash get-id-token))
+(def token-data
+  (-> js/window .-location .-hash get-token-data))
 ;
 
-(prn "hash:"
-  (-> js/window .-location .-hash get-id-token))
 
 (defn auth-btn []
   [:a.btn.btn-link
@@ -69,8 +64,10 @@
 
 (defn token-pane []
   [:div
-    ""
-    (str id_token)])
+    (when token-data
+      "token-data:"
+      [:br]
+      (str token-data))])
 ;
 
 ;;.
