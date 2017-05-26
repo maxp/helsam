@@ -29,11 +29,10 @@
 ; additional-parameter=ADDITIONAL_PARAMETERS)
 
 (defn query-params-map [h]
-  (->>
-    (s/split (str h) #"&")
-    (map #(s/split % #"="))
-    (into {})
-    (not-empty)))
+  (when-let [ps (->> (s/split (str h) #"&")
+                  (remove s/blank?)
+                  (not-empty))]
+    (into {} (map #(s/split % #"=") ps))))
 ;
 
 (defn decode-b64 [s]
@@ -44,17 +43,23 @@
       (js->clj))))
 ;
 
-(defn get-token-data [h]
-  (when-let [idt (get (query-params-map h) "id_token")]
-    (let [[hdr data sign] (s/split idt #"\.")]
-      (decode-b64 data))))
-      ;; NOTE: keywordize?
+(defn get-token-data []
+  (let [h (-> js/window .-location .-hash (.substring 1))]
+    (when-let [idt (get (query-params-map h) "id_token")]
+      (let [[hdr data sign] (s/split idt #"\.")]
+        (decode-b64 data)))))
+        ;; NOTE: keywordize?
 ;
 
-(def token-data
-  (-> js/window .-location .-hash get-token-data))
-;
+(def *token-data (atom nil))
 
+;; NOTE:  future-like, no race state here
+(defn token-data! []
+  (or
+    @*token-data
+    (swap! *token-data
+      (fn [_] (get-token-data)))))
+;
 
 (defn auth-btn []
   [:a.btn.btn-link
@@ -63,11 +68,12 @@
 ;
 
 (defn token-pane []
-  [:div
-    (when token-data
+  (when-let [t (token-data!)]
+    [:div
       "token-data:"
       [:br]
-      (str token-data))])
+      (str t)]))
+
 ;
 
 ;;.
